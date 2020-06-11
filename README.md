@@ -1,6 +1,6 @@
 # Data Journalism and D3
 
-**Webpage:** https://diannejardinez.github.io/D3-Challenge/
+**Webpage:** https://diannejardinez.github.io/D3-Challenge
 
 
 **Objective:** Creating a dynamic and interactive data visualization chart that allows for filtering variable data for specific dataset values using Javascript, HTML, CSS, and D3.js.
