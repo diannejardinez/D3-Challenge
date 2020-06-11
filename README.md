@@ -8,3 +8,5 @@
 Website includes:
 - Dataset filtered by three demographics and 3 health risk factors on each axis 
 - D3 Tooltip that reveals that state's data
+
+![](https://github.com/diannejardinez/D3-Challenge/blob/master/image/index.png)
