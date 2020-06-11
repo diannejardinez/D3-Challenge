@@ -63,14 +63,13 @@ function renderYAxis(newYScale, yAxis) {
 function renderCircles(circlesGroup, newXScale, newYScale, chosenXAxis, chosenYAxis) {
     circlesGroup.transition()
         .duration(1000)
-        // .attr("transform", d => `translate(${newXScale(d[chosenXAxis])},${newYScale(d[chosenYAxis])})`);
         .attr("cx", d => newXScale(d[chosenXAxis]))
         .attr("cy", d => newYScale(d[chosenYAxis]));
         
     return circlesGroup;
 }
     
-
+// X Axis and Y Axis Text in Circles
 function renderText(circlesText, newXScale, newYScale, chosenXAxis, chosenYAxis) {
     circlesText.transition()
       .duration(1000)
@@ -139,7 +138,7 @@ function updateToolTip(chosenXAxis, chosenYAxis, circlesGroup, circlesText) {
 // Retrieving data
 d3.csv("data/data.csv").then(function(healthData){
     
-    // clean data
+    // Clean data
     healthData.forEach(function(d) {
         d.age = +d.age;
         d.healthcare = +d.healthcare;
@@ -179,7 +178,7 @@ d3.csv("data/data.csv").then(function(healthData){
         .classed("stateCircle", true)
         .attr("r", 15)
 
-    // Create text in circle
+    // Create text in circles
     var circlesText = chartGroup.selectAll(".stateText")
         .data(healthData)
         .enter()
@@ -190,7 +189,6 @@ d3.csv("data/data.csv").then(function(healthData){
         .attr("dy", ".3em")
         .text(d => (d.abbr))
 
-
     // Create title for chart
     var chartTitle = chartGroup.append("text")
         .attr("transform", `translate(${width/2 -320}, ${-30} )`)
@@ -198,7 +196,7 @@ d3.csv("data/data.csv").then(function(healthData){
         .text("Behavioral risk factors and health indicators by State")
 
     // Create group for three x-axis labels
-    // x scale will include In Poverty (%), Age(Median), Household Income(Median)
+    // X Scale will include In Poverty (%), Age(Median), Household Income(Median)
     var xlabelsGroup = chartGroup.append("g")
         .attr("font-size", "15px")
         .attr("text-anchor", "middle")
@@ -226,7 +224,7 @@ d3.csv("data/data.csv").then(function(healthData){
         .text("Household Income(Median)");
 
     // Create group for three y-axis labels
-    // y scale will include Lacks Health care(%), Smokes(%), Obese(%)
+    // Y Scale will include Lacks Health care(%), Smokes(%), Obese(%)
     var ylabelsGroup = chartGroup.append("g")
         .attr("font-size", "15px")
         .attr("text-anchor", "middle")
@@ -252,7 +250,6 @@ d3.csv("data/data.csv").then(function(healthData){
         .attr("value", "obesity") 
         .classed("inactive", true)
         .text("Obese(%)");
-
 
     // UpdateToolTip function 
     var circlesGroup = updateToolTip(chosenXAxis, chosenYAxis, circlesGroup, circlesText);
