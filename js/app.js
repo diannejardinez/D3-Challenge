@@ -233,22 +233,22 @@ d3.csv("data/data.csv").then(function(healthData){
         .attr("transform", `rotate(-90)`);
 
     var healthcareLabel = ylabelsGroup.append("text")
-        .attr("x", -250)
-        .attr("y", -30)
+        .attr("x", -325)
+        .attr("y", -35)
         .attr("value", "healthcare") 
         .classed("active", true)
         .text("Lacks Health care(%)");
 
     var smokesLabel = ylabelsGroup.append("text")
-        .attr("x", -250)
-        .attr("y", -55)
+        .attr("x", -325)
+        .attr("y", -60)
         .attr("value", "smokes") 
         .classed("inactive", true)
         .text("Smokes(%)");
 
     var obesityLabel = ylabelsGroup.append("text")
-        .attr("x", -250)
-        .attr("y", -80)
+        .attr("x", -325)
+        .attr("y", -85)
         .attr("value", "obesity") 
         .classed("inactive", true)
         .text("Obese(%)");
