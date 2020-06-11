@@ -2,8 +2,8 @@
 // Setting svg chart area for chart transformation
 var margin = {left:100, right:20, top:50, bottom:150 };
 
-var width = 1000 - margin.left - margin.right,
-    height = 900 - margin.top - margin.bottom;
+var width = 900 - margin.left - margin.right,
+    height = 600 - margin.top - margin.bottom;
 
 var chartGroup = d3.select("#scatter")
     .append("svg")
@@ -177,7 +177,7 @@ d3.csv("data/data.csv").then(function(healthData){
         .attr("cx", d => xLinearScale(d[chosenXAxis]))
         .attr("cy", d => yLinearScale(d[chosenYAxis]))
         .classed("stateCircle", true)
-        .attr("r", 25)
+        .attr("r", 15)
 
     // Create text in circle
     var circlesText = chartGroup.selectAll(".stateText")
@@ -194,13 +194,13 @@ d3.csv("data/data.csv").then(function(healthData){
     // Create title for chart
     var chartTitle = chartGroup.append("text")
         .attr("transform", `translate(${width/2 -320}, ${-30} )`)
-        .classed("h2", true)
+        .classed("h3", true)
         .text("Behavioral risk factors and health indicators by State")
 
     // Create group for three x-axis labels
     // x scale will include In Poverty (%), Age(Median), Household Income(Median)
     var xlabelsGroup = chartGroup.append("g")
-        .attr("font-size", "20px")
+        .attr("font-size", "15px")
         .attr("text-anchor", "middle")
         .attr("transform", `translate(${width / 2}, ${height + 20})`);
 
@@ -213,14 +213,14 @@ d3.csv("data/data.csv").then(function(healthData){
 
     var ageLabel = xlabelsGroup.append("text")
         .attr("x", 0)
-        .attr("y", 55)
+        .attr("y", 50)
         .attr("value", "age") 
         .classed("inactive", true)
         .text("Age(Median)");
 
     var incomeLabel = xlabelsGroup.append("text")
         .attr("x", 0)
-        .attr("y", 80)
+        .attr("y", 70)
         .attr("value", "income") 
         .classed("inactive", true)
         .text("Household Income(Median)");
@@ -228,27 +228,27 @@ d3.csv("data/data.csv").then(function(healthData){
     // Create group for three y-axis labels
     // y scale will include Lacks Health care(%), Smokes(%), Obese(%)
     var ylabelsGroup = chartGroup.append("g")
-        .attr("font-size", "20px")
+        .attr("font-size", "15px")
         .attr("text-anchor", "middle")
         .attr("transform", `rotate(-90)`);
 
     var healthcareLabel = ylabelsGroup.append("text")
-        .attr("x", -325)
-        .attr("y", -35)
+        .attr("x", -200)
+        .attr("y", -30)
         .attr("value", "healthcare") 
         .classed("active", true)
         .text("Lacks Health care(%)");
 
     var smokesLabel = ylabelsGroup.append("text")
-        .attr("x", -325)
-        .attr("y", -60)
+        .attr("x", -200)
+        .attr("y", -50)
         .attr("value", "smokes") 
         .classed("inactive", true)
         .text("Smokes(%)");
 
     var obesityLabel = ylabelsGroup.append("text")
-        .attr("x", -325)
-        .attr("y", -85)
+        .attr("x", -200)
+        .attr("y", -70)
         .attr("value", "obesity") 
         .classed("inactive", true)
         .text("Obese(%)");
